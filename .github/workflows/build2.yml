@@ -1,10 +1,72 @@
 name: Build
 
 on:
-  push:
-    branches:
-      - '*'
-
+  workflow_dispatch:
+    inputs:
+      param1:
+        default: ""
+      param2:
+        default: ""
+      param3:
+        default: ""
+      param4:
+        default: ""
+      param5:
+        default: ""
+      param6:
+        default: ""
+      param7:
+        default: ""
+      param8:
+        default: ""
+      param9:
+        default: ""
+      param10:
+        default: ""
+      param11:
+        default: ""
+      param12:
+        default: ""
+      param13:
+        default: ""
+      param14:
+        default: ""
+      param15:
+        default: ""
+      param16:
+        default: ""
+      param17:
+        default: ""
+      param18:
+        default: ""
+      param19:
+        default: ""
+      param20:
+        default: ""
+      param21:
+        default: ""
+      param22:
+        default: ""
+      param23:
+        default: ""
+      param24:
+        default: ""
+      param25:
+        default: ""
+      param26:
+        default: ""
+      param27:
+        default: ""
+      param28:
+        default: ""
+      param29:
+        default: ""
+      param30:
+        default: ""
+      param31:
+        default: ""
+      param32:
+        default: ""
 jobs:
   build:
     name: Build
@@ -12,25 +74,39 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-        id: buildx
-        with:
-          platforms: linux/amd64,linux/arm64
-      - name: Build
-        uses: docker/build-push-action@v6
-        with:
-          platforms: linux/amd64,linux/arm64
-          context: ./
-          file: ./Dockerfile
-          builder: ${{ steps.buildx.outputs.name }}
-          push: false
-          tags: latest
-          provenance: false
-          sbom: false
-          no-cache: true
       - name: Build
         env:
-          MY_ENV_VAR: ${{ steps.buildx.outputs.name }}
+          MY_ENV_VAR1: ${{ inputs.params1 }}
+          MY_ENV_VAR2: ${{ inputs.params2 }}
+          MY_ENV_VAR3: ${{ inputs.params3 }}
+          MY_ENV_VAR4: ${{ inputs.params4 }}
+          MY_ENV_VAR5: ${{ inputs.params5 }}
+          MY_ENV_VAR6: ${{ inputs.params6 }}
+          MY_ENV_VAR7: ${{ inputs.params7 }}
+          MY_ENV_VAR8: ${{ inputs.params8 }}
+          MY_ENV_VAR9: ${{ inputs.params9 }}
+          MY_ENV_VAR10: ${{ inputs.params10 }}
+          MY_ENV_VAR11: ${{ inputs.params11 }}
+          MY_ENV_VAR12: ${{ inputs.params12 }}
+          MY_ENV_VAR13: ${{ inputs.params13 }}
+          MY_ENV_VAR14: ${{ inputs.params14 }}
+          MY_ENV_VAR15: ${{ inputs.params15 }}
+          MY_ENV_VAR16: ${{ inputs.params16 }}
+          MY_ENV_VAR17: ${{ inputs.params17 }}
+          MY_ENV_VAR18: ${{ inputs.params18 }}
+          MY_ENV_VAR19: ${{ inputs.params19 }}
+          MY_ENV_VAR20: ${{ inputs.params20 }}
+          MY_ENV_VAR21: ${{ inputs.params21 }}
+          MY_ENV_VAR22: ${{ inputs.params22 }}
+          MY_ENV_VAR23: ${{ inputs.params23 }}
+          MY_ENV_VAR24: ${{ inputs.params24 }}
+          MY_ENV_VAR25: ${{ inputs.params25 }}
+          MY_ENV_VAR26: ${{ inputs.params26 }}
+          MY_ENV_VAR27: ${{ inputs.params27 }}
+          MY_ENV_VAR28: ${{ inputs.params28 }}
+          MY_ENV_VAR29: ${{ inputs.params29 }}
+          MY_ENV_VAR30: ${{ inputs.params30 }}
+          MY_ENV_VAR31: ${{ inputs.params31 }}
+          MY_ENV_VAR32: ${{ inputs.params32 }}
         run: |
-          echo $MY_ENV_VAR
+          echo $(ENV)
